@@ -1,0 +1,182 @@
+version: '2'
+services:
+ # Shard 1
+ mongo-S01-R01:
+  image: yugokato/mongo_nosql:latest
+  container_name: mongo-S01-R01
+  hostname: mongo-S01-R01
+  networks:
+    mynetwork:
+      ipv4_address: 172.31.0.11
+  ports:
+   - "37017:27017"
+  volumes:
+   - ./mongo-S01-R01:/data
+  privileged: true
+  stdin_open: true
+
+ mongo-S01-R02:
+  image: yugokato/mongo_nosql:latest
+  container_name: mongo-S01-R02
+  hostname: mongo-S01-R02
+  networks:
+    mynetwork:
+      ipv4_address: 172.31.0.12
+  ports:
+   - "37018:27017"
+  volumes:
+   - ./mongo-S01-R02:/data
+  privileged: true
+  stdin_open: true
+
+ mongo-S01-R03:
+  image: yugokato/mongo_nosql:latest
+  container_name: mongo-S01-R03
+  hostname: mongo-S01-R03
+  networks:
+    mynetwork:
+      ipv4_address: 172.31.0.13
+  ports:
+   - "37019:27017"
+  volumes:
+   - ./mongo-S01-R03:/data
+  privileged: true
+  stdin_open: true
+
+# Shard 2
+ mongo-S02-R01:
+  image: yugokato/mongo_nosql:latest
+  container_name: mongo-S02-R01
+  hostname: mongo-S02-R01
+  networks:
+    mynetwork:
+      ipv4_address: 172.31.0.21
+  ports:
+   - "47017:27017"
+  volumes:
+   - ./mongo-S02-R01:/data
+  privileged: true
+  stdin_open: true
+
+ mongo-S02-R02:
+  image: yugokato/mongo_nosql:latest
+  container_name: mongo-S02-R02
+  hostname: mongo-S02-R02
+  networks:
+    mynetwork:
+      ipv4_address: 172.31.0.22
+  ports:
+   - "47018:27017"
+  volumes:
+   - ./mongo-S02-R02:/data
+  privileged: true
+  stdin_open: true
+
+ mongo-S02-R03:
+  image: yugokato/mongo_nosql:latest
+  container_name: mongo-S02-R03
+  hostname: mongo-S02-R03
+  networks:
+    mynetwork:
+      ipv4_address: 172.31.0.23
+  ports:
+   - "47019:27017"
+  volumes:
+   - ./mongo-S02-R03:/data
+  privileged: true
+  stdin_open: true
+
+# Shard 3
+ mongo-S03-R01:
+  image: yugokato/mongo_nosql:latest
+  container_name: mongo-S03-R01
+  hostname: mongo-S03-R01
+  networks:
+    mynetwork:
+      ipv4_address: 172.31.0.31
+  ports:
+   - "57017:27017"
+  volumes:
+   - ./mongo-S03-R01:/data
+  privileged: true
+  stdin_open: true
+
+ mongo-S03-R02:
+  image: yugokato/mongo_nosql:latest
+  container_name: mongo-S03-R02
+  hostname: mongo-S03-R02
+  networks:
+    mynetwork:
+      ipv4_address: 172.31.0.32
+  ports:
+   - "57018:27017"
+  volumes:
+   - ./mongo-S03-R02:/data
+  privileged: true
+  stdin_open: true
+
+ mongo-S03-R03:
+  image: yugokato/mongo_nosql:latest
+  container_name: mongo-S03-R03
+  hostname: mongo-S3-R03
+  networks:
+    mynetwork:
+      ipv4_address: 172.31.0.33
+  ports:
+   - "57019:27017"
+  volumes:
+   - ./mongo-S03-R03:/data
+  privileged: true
+  stdin_open: true
+
+# Convig Servers
+ configSVR-01:
+  image: yugokato/mongo_nosql:latest
+  container_name: configSVR-01
+  hostname: configSVR-01
+  networks:
+    mynetwork:
+      ipv4_address: 172.31.0.41
+  ports:
+   - "57040:27019"
+  volumes:
+   - ./configSVR-01:/data
+  privileged: true
+  stdin_open: true
+
+ configSVR-02:
+  image: yugokato/mongo_nosql:latest
+  container_name: configSVR-02
+  hostname: configSVR-02
+  networks:
+    mynetwork:
+      ipv4_address: 172.31.0.42
+  ports:
+   - "57041:27019"
+  volumes:
+   - ./configSVR-02:/data
+  privileged: true
+  stdin_open: true
+
+ configSVR-03:
+  image: yugokato/mongo_nosql:latest
+  container_name: configSVR-03
+  hostname: configSVR-03
+  networks:
+    mynetwork:
+      ipv4_address: 172.31.0.43
+  ports:
+   - "57042:27019"
+  volumes:
+   - ./configSVR-03:/data
+  privileged: true
+  stdin_open: true
+
+networks:
+  mynetwork:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.31.0.0/16
+        gateway: 172.31.0.254
