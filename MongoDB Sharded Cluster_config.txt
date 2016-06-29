@@ -3,30 +3,24 @@
 # mongo-S01-R03
 sudo killall mongod
 sudo killall mongos
-sudo rm -rf /data/config
-sudo rm -rf /data/shard*
+#sudo rm -rf /data/shard*
 sudo mkdir -p /data/shard1/rs3
-sleep 1
 sudo mongod --replSet s1 --logpath /data/shard1/rs3/s1-r3.log --dbpath /data/shard1/rs3 --port 27017 --shardsvr --wiredTigerEngineConfigString="cache_size=100M" &
 
 
 # mongo-S01-R02
 sudo killall mongod
 sudo killall mongos
-sudo rm -rf /data/config
-sudo rm -rf /data/shard*
+#sudo rm -rf /data/shard*
 sudo mkdir -p /data/shard1/rs2
-sleep 1
 sudo mongod --replSet s1 --logpath /data/shard1/rs2/s1-r2.log --dbpath /data/shard1/rs2 --port 27017 --shardsvr --wiredTigerEngineConfigString="cache_size=100M" &
 
 
 # mongo-S01-R01
 sudo killall mongod
 sudo killall mongos
-sudo rm -rf /data/config
-sudo rm -rf /data/shard*
+#sudo rm -rf /data/shard*
 sudo mkdir -p /data/shard1/rs1
-sleep 1
 sudo mongod --replSet s1 --logpath /data/shard1/rs1/s1-r1.log --dbpath /data/shard1/rs1 --port 27017 --shardsvr --wiredTigerEngineConfigString="cache_size=100M" &
 sleep 5
 sudo mongo --port 27017 << 'EOF'
@@ -42,30 +36,24 @@ EOF
 # mongo-S02-R03
 sudo killall mongod
 sudo sudo killall mongos
-sudo sudo rm -rf /data/config
-sudo rm -rf /data/shard*
+#sudo rm -rf /data/shard*
 sudo mkdir -p /data/shard2/rs3
-sleep 1
 sudo mongod --replSet s2 --logpath /data/shard2/rs3/s2-r3.log --dbpath /data/shard2/rs3 --port 27017 --shardsvr --wiredTigerEngineConfigString="cache_size=100M" &
 
 
 # mongo-S02-R02
 sudo killall mongod
 sudo killall mongos
-sudo rm -rf /data/config
-sudo rm -rf /data/shard*
+#sudo rm -rf /data/shard*
 sudo mkdir -p /data/shard2/rs2
-sleep 1
 sudo mongod --replSet s2 --logpath /data/shard2/rs2/s2-r2.log --dbpath /data/shard2/rs2 --port 27017 --shardsvr --wiredTigerEngineConfigString="cache_size=100M" &
 
 
 # mongo-S02-R01
 sudo killall mongod
 sudo killall mongos
-sudo rm -rf /data/config
-sudo rm -rf /data/shard*
+#sudo rm -rf /data/shard*
 sudo mkdir -p /data/shard2/rs1
-sleep 1
 sudo mongod --replSet s2 --logpath /data/shard2/rs1/s2-r1.log --dbpath /data/shard2/rs1 --port 27017 --shardsvr --wiredTigerEngineConfigString="cache_size=100M" &
 sleep 5
 sudo mongo --port 27017 << 'EOF'
@@ -81,30 +69,24 @@ EOF
 # mongo-S03-R03
 sudo killall mongod
 sudo killall mongos
-sudo rm -rf /data/config
-sudo rm -rf /data/shard*
+#sudo rm -rf /data/shard*
 sudo mkdir -p /data/shard3/rs3
-sleep 1
 sudo mongod --replSet s3 --logpath /data/shard3/rs3/s3-r3.log --dbpath /data/shard3/rs3 --port 27017 --shardsvr --wiredTigerEngineConfigString="cache_size=100M" &
 
 
 # mongo-S03-R02
 sudo killall mongod
 sudo killall mongos
-sudo rm -rf /data/config
-sudo rm -rf /data/shard*
+#sudo rm -rf /data/shard*
 sudo mkdir -p /data/shard3/rs2
-sleep 1
 sudo mongod --replSet s3 --logpath /data/shard3/rs2/s3-r2.log --dbpath /data/shard3/rs2 --port 27017 --shardsvr --wiredTigerEngineConfigString="cache_size=100M" &
 
 
 # mongo-S03-R01
 sudo killall mongod
 sudo sudo killall mongos
-sudo rm -rf /data/config
-sudo rm -rf /data/shard*
+#sudo rm -rf /data/shard*
 sudo mkdir -p /data/shard3/rs1
-sleep 1
 sudo mongod --replSet s3 --logpath /data/shard3/rs1/s3-r1.log --dbpath /data/shard3/rs1 --port 27017 --shardsvr --wiredTigerEngineConfigString="cache_size=100M" &
 sleep 5
 sudo mongo --port 27017 << 'EOF'
@@ -120,23 +102,20 @@ EOF
 
 # ConfigSvr03
 sudo killall mongod
-sudo rm -rf /data/config
+#sudo rm -rf /data/config
 sudo mkdir -p /data/config
-sleep 1
 sudo mongod --replSet configReplSet --logpath /data/config/cfg3.log --dbpath /data/config --port 27019 --configsvr --wiredTigerEngineConfigString="cache_size=100M" &
 
 # ConfigSvr02
 sudo killall mongod
-sudo rm -rf /data/config
+#sudo rm -rf /data/config
 sudo mkdir -p /data/config
-sleep 1
 sudo mongod --replSet configReplSet --logpath /data/config/cfg2.log --dbpath /data/config --port 27019 --configsvr --wiredTigerEngineConfigString="cache_size=100M" &
 
 # ConfigSvr01
 sudo killall mongod
-sudo rm -rf /data/config
+#sudo rm -rf /data/config
 sudo mkdir -p /data/config
-sleep 1
 sudo mongod --replSet configReplSet --logpath /data/config/cfg1.log --dbpath /data/config --port 27019 --configsvr --wiredTigerEngineConfigString="cache_size=100M" &
 sleep 5
 mongo --port 27019 << 'EOF'
@@ -157,7 +136,7 @@ EOF
 # Start the mongos
 sudo mongos --configdb configReplSet/172.31.0.41:27017,172.31.0.42:27017,172.31.0.43:27017 &
 sleep 5
-# add shards and enable sharding on the test db
+# add shards
 sudo mongo << 'EOF'
 db.adminCommand( {addshard: "s1/" + "172.31.0.11:27017"});
 db.adminCommand( {addshard: "s2/" + "172.31.0.21:27017"});
@@ -165,8 +144,9 @@ db.adminCommand( {addshard: "s3/" + "172.31.0.31:27017"});
 EOF
 
 
-# Insert data (main.py)
-# db.createIndex({Date: "hashed"})
+####################################################################
+# Insert data (run main.py)
+# db.createIndex({Date: 1})
 # sh.enableSharding("chicago")
-# sh.shardCollection("chicago.crimes", {Date: "hashed"})
+# sh.shardCollection("chicago.crimes", {Date: 1})
 
