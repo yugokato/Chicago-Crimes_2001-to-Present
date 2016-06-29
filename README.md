@@ -1,5 +1,14 @@
-Big data analysis with MongoDB sharded cluster (with Docker containers)
+Big data analysis with MongoDB Sharded Cluster (with Docker containers)
 =====================================
+
+## Introduction
+This repository was created to share my class project. What I did in the project are:
+* Use a publically available dataset (I used 1.5GB/6M+ records of CSV file)
+* Deploy a MongoDB Sharded Cluster (I used Docker containers to deploy everything in my localmachine)
+* Design a schema for data in the database
+* Clean and store the data into the database (with python programming)
+* Analyze the dataset by querying with MongoDB Aggregation Framework
+* Visualize the [results](https://1drv.ms/b/s!AkRAr6rw0sUWgTcS2zot_6jKowM4)
 
 
 ## MongoDB Topology
@@ -7,7 +16,7 @@ Big data analysis with MongoDB sharded cluster (with Docker containers)
 
 
 ## Requirements  
-You need to install docker engine and docker compose  
+Other than MongoDB and pymongo, you need to install docker engine and docker compose
 **For OS X:**   
 - Install Docker toolbox  
     https://www.docker.com/products/docker-toolbox  
@@ -28,7 +37,7 @@ You need to install docker engine and docker compose
 
 ## Setup MongoDB sharded cluster with containers
 1. Deploy docker containers  
-    The docker-compose.yml file will automatically deploy 12 containers for you
+    The pre-defined docker-compose.yml file will automatically deploy 12 containers(mongod) for you
 
         $ docker-compose up -d
 
@@ -102,6 +111,7 @@ You need to install docker engine and docker compose
 ## Enable sharding
 1. Create an index for shard-key
     
+        $ mongos
         mongos> use chicago
         mongos> db.crimes.createIndex({  YOUR SHARD KEY  })
 
