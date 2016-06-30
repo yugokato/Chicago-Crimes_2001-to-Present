@@ -16,7 +16,7 @@ This repository was created to share my class project. What I did in the project
 
 
 ## Requirements  
-Other than MongoDB and pymongo, you need to install docker engine and docker compose
+Other than MongoDB and pymongo, you need to install docker engine and docker compose  
 **For OS X:**   
 - Install Docker toolbox  
     https://www.docker.com/products/docker-toolbox  
