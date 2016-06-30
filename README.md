@@ -111,7 +111,7 @@ Other than MongoDB and pymongo, you need to install docker engine and docker com
 ## Enable sharding
 1. Create an index for shard-key
     
-        $ mongos
+        $ mongo
         mongos> use chicago
         mongos> db.crimes.createIndex({  YOUR SHARD KEY  })
 
