@@ -9,7 +9,7 @@ services:
     mynetwork:
       ipv4_address: 172.31.0.11
   ports:
-   - "37017:27017"
+   - "37017:27018"
   volumes:
    - ./mongo-S01-R01:/data
   privileged: true
@@ -23,7 +23,7 @@ services:
     mynetwork:
       ipv4_address: 172.31.0.12
   ports:
-   - "37018:27017"
+   - "37018:27018"
   volumes:
    - ./mongo-S01-R02:/data
   privileged: true
@@ -37,7 +37,7 @@ services:
     mynetwork:
       ipv4_address: 172.31.0.13
   ports:
-   - "37019:27017"
+   - "37019:27018"
   volumes:
    - ./mongo-S01-R03:/data
   privileged: true
@@ -52,7 +52,7 @@ services:
     mynetwork:
       ipv4_address: 172.31.0.21
   ports:
-   - "47017:27017"
+   - "47017:27018"
   volumes:
    - ./mongo-S02-R01:/data
   privileged: true
@@ -66,7 +66,7 @@ services:
     mynetwork:
       ipv4_address: 172.31.0.22
   ports:
-   - "47018:27017"
+   - "47018:27018"
   volumes:
    - ./mongo-S02-R02:/data
   privileged: true
@@ -80,7 +80,7 @@ services:
     mynetwork:
       ipv4_address: 172.31.0.23
   ports:
-   - "47019:27017"
+   - "47019:27018"
   volumes:
    - ./mongo-S02-R03:/data
   privileged: true
@@ -95,7 +95,7 @@ services:
     mynetwork:
       ipv4_address: 172.31.0.31
   ports:
-   - "57017:27017"
+   - "57017:27018"
   volumes:
    - ./mongo-S03-R01:/data
   privileged: true
@@ -109,7 +109,7 @@ services:
     mynetwork:
       ipv4_address: 172.31.0.32
   ports:
-   - "57018:27017"
+   - "57018:27018"
   volumes:
    - ./mongo-S03-R02:/data
   privileged: true
@@ -123,7 +123,7 @@ services:
     mynetwork:
       ipv4_address: 172.31.0.33
   ports:
-   - "57019:27017"
+   - "57019:27018"
   volumes:
    - ./mongo-S03-R03:/data
   privileged: true

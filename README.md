@@ -46,15 +46,15 @@ Other than MongoDB and pymongo, you need to install docker engine and docker com
 
     Container name      | Hostname        | IP Address      | mongod port      | User      | Password 
     ----                | ---             | ----            | ---              | ---       | ---  
-    mongo-S01-R01       | mongo-S01-R01   | 172.31.0.11     | 27017            | mongo     | mongo 
-    mongo-S01-R02       | mongo-S01-R02   | 172.31.0.12     | 27017            | mongo     | mongo 
-    mongo-S01-R03       | mongo-S01-R03   | 172.31.0.13     | 27017            | mongo     | mongo 
-    mongo-S02-R01       | mongo-S02-R01   | 172.31.0.21     | 27017            | mongo     | mongo 
-    mongo-S02-R02       | mongo-S02-R02   | 172.31.0.22     | 27017            | mongo     | mongo 
-    mongo-S02-R03       | mongo-S02-R03   | 172.31.0.23     | 27017            | mongo     | mongo 
-    mongo-S03-R01       | mongo-S03-R01   | 172.31.0.31     | 27017            | mongo     | mongo 
-    mongo-S03-R02       | mongo-S03-R02   | 172.31.0.32     | 27017            | mongo     | mongo 
-    mongo-S03-R03       | mongo-S03-R03   | 172.31.0.33     | 27017            | mongo     | mongo 
+    mongo-S01-R01       | mongo-S01-R01   | 172.31.0.11     | 27018            | mongo     | mongo 
+    mongo-S01-R02       | mongo-S01-R02   | 172.31.0.12     | 27018            | mongo     | mongo 
+    mongo-S01-R03       | mongo-S01-R03   | 172.31.0.13     | 27018            | mongo     | mongo 
+    mongo-S02-R01       | mongo-S02-R01   | 172.31.0.21     | 27018            | mongo     | mongo 
+    mongo-S02-R02       | mongo-S02-R02   | 172.31.0.22     | 27018            | mongo     | mongo 
+    mongo-S02-R03       | mongo-S02-R03   | 172.31.0.23     | 27018            | mongo     | mongo 
+    mongo-S03-R01       | mongo-S03-R01   | 172.31.0.31     | 27018            | mongo     | mongo 
+    mongo-S03-R02       | mongo-S03-R02   | 172.31.0.32     | 27018            | mongo     | mongo 
+    mongo-S03-R03       | mongo-S03-R03   | 172.31.0.33     | 27018            | mongo     | mongo 
     configSVR-01        | configSVR-01    | 172.31.0.41     | 27019            | mongo     | mongo 
     configSVR-02        | configSVR-02    | 172.31.0.42     | 27019            | mongo     | mongo 
     configSVR-03        | configSVR-03    | 172.31.0.43     | 27019            | mongo     | mongo 
